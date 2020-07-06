@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html ng-app="calculator-app">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+  </head>
+  <body id="calculator" ng-controller="calculator">
+
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col-xs-12 div-button">
+          <div class="subResult" ng-show="nextAction != '' ">{{total}} {{nextAction}} {{subTotal}}</div>
+
+          <div class="subResult" ng-show="nextAction == '' "></div>
+
+          <div class="result" ng-show="subTotal != '' " >{{subTotal}}</div>
+
+          <div class="result" ng-show="subTotal == ''  " >{{total}}</div>
+        </div>
+
+      </div>
+
+      <div class="row">
+
+        <div class="col-xs-6 text-center" style="margin-bottom: 10px;">
+        </div>
+
+
+
+
+        <div class="col-xs-3 text-center div-button">
+          <button type="button" class="btn btn-default btn-block" id="bnt-clear"  ng-click="clear()">C</button>
+        </div>
+
+        <div class="col-xs-3 text-center div-button">
+          <button type="button" class="btn btn-default btn-block btn-warning" id="bnt-result"  ng-click="result()">=</button>
+        </div>
+
+        <div class="col-xs-3 text-center div-button" ng-repeat="i in [7,8,9]">
+            <button type="button" class="btn btn-default btn-block" id="bnt-{{i}}"   ng-click="addToSubTotal(i)">{{i}}</button>
+        </div>
+
+        <div class="col-xs-3 text-center div-button">
+          <button type="button" class="btn btn-default btn-block btn-warning" id="bnt-47" ng-click="operetionClicked('/')">/</button>
+        </div>
+
+        <div class="col-xs-3 text-center div-button"  ng-repeat="i in [4,5,6]">
+            <button type="button" class="btn btn-default btn-block" id="bnt-{{i}}" ng-click="addToSubTotal(i)">{{i}}</button>
+        </div>
+
+        <div class="col-xs-3 text-center div-button">
+          <button type="button" class="btn btn-default btn-block btn-warning" id="bnt-42" ng-click="operetionClicked('*')">*</button>
+        </div>
+
+        <div class="col-xs-3 text-center div-button"  ng-repeat="i in [1,2,3]">
+            <button type="button" class="btn btn-default btn-block" id="bnt-{{i}}" ng-click="addToSubTotal(i)">{{i}}</button>
+        </div>
+
+
+
+
+        <div class="col-xs-3 text-center div-button">
+          <button type="button" class="btn btn-default btn-block btn-warning" id="bnt-45"   ng-click="operetionClicked('-')">-</button>
+        </div>
+
+        <div class="col-xs-6 text-center div-button">
+            <button type="button" class="btn btn-default btn-block" id="bnt-0"   ng-click="addToSubTotal(0)">0</button>
+        </div>
+
+        <div class="col-xs-3 text-center div-button">
+          <button type="button" class="btn btn-default btn-block" id="bnt-dot"     ng-click="addDot()">.</button>
+        </div>
+
+        <div class="col-xs-3 text-center div-button">
+          <button type="button" class="btn btn-default btn-block btn-warning" id="bnt-43" ng-click="operetionClicked('+')">+</button>
+        </div>
+
+
+
+      </div>
+    </div>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <script type="text/javascript" src="js/controllers/calculator.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  </body>
+</html>
